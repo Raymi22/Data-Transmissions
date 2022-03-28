@@ -1,0 +1,22 @@
+2.3.1
+Axio si vue fiind deja instalate, trebuie doar deschis index.html in browser.
+
+2.3.2
+In folderul client: cmd
+->npm install http-server –g
+-> http-server
+In folderul server: 
+cmd
+-> npm install
+-> node server.js
+Se deschide index.html in browser.
+
+2.3.3
+In folderul server: 
+cmd 
+-> npm install
+-> node server.js
+In folderul client:
+cmd
+-> npm install live-server –g
+-> live-server
