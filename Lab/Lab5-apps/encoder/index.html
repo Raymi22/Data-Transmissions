@@ -1,0 +1,69 @@
+<html>
+<head>
+    <meta content="text/html;charset=utf-8" http-equiv="Content-Type">
+    <title>Baseband Encoder</title>
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+</head>
+<body>
+    <div id="baseband-encoder">
+        <ul v-for="(bit, index) in bits">
+            <li>
+                <input 
+                    v-on:change="encode()" 
+                    maxlength="1" :placeholder="'B'+index" v-model="bit.value"
+                    v-bind:class="[validateBit(bit.value) ? 'valid-input' : 'invalid-input']" />
+            </li>
+        </ul>
+        <p>Bitstream data model: <code>{{bits}}</code></p>
+        <p>Baseband code representation: </p>
+        <table>
+            <tr>
+                <td>Manchester Level Encoding:</td>
+                <td><p> <code class="encoded">{{ManchesterLevelEncoding.join('')}}</code></p></td>
+            </tr>
+            <tr>
+                <td>Non-Return to Zero Level: </td>
+                <td><p><code class="encoded">{{NRZL.join('')}}</code></p></td>
+            </tr>
+            <tr>
+                <td>Non-Return to Zero Space: </td>
+                <td><p><code class="encoded">{{NRZS.join('')}}</code></p></td>
+            </tr>
+            <tr>
+                <td>Non-Return to Zero Mark: </td>
+                <td><p><code class="encoded">{{NRZM.join('')}}</code></p></td>
+            </tr>
+            <tr>
+                <td>Return to Zero: </td>
+                <td><p><code class="encoded">{{RZ.join('')}}</code></p></td>
+            </tr>
+            <tr>
+                <td>Biphase Level: </td>
+                <td><p><code class="encoded">{{BL.join('')}}</code></p></td>
+            </tr>
+            <tr>
+                <td>Biphase Mark: </td>
+                <td><p><code class="encoded">{{BM.join('')}}</code></p></td>
+            </tr>
+            <tr>
+                <td>Biphase Space: </td>
+                <td><p><code class="encoded">{{BS.join('')}}</code></p></td>
+            </tr>
+            <tr>
+                <td>Biphase Level Differential: </td>
+                <td><p><code class="encoded">{{BLDiff.join('')}}</code></p></td>
+            </tr>
+            <tr>
+                <td>Delay: </td>
+                <td><p><code class="encoded">{{Delay.join('')}}</code></p></td>
+            </tr>
+        </table>       
+    </div>
+
+    <script type="text/javascript" src="libs/vue.js"></script>
+    <script type="text/javascript" src="libs/axios.js"></script>
+    <script type="text/javascript" src="js/helpers.js"></script>
+    <script type="text/javascript" src="js/baseband-codes.js"></script>
+    <script type="text/javascript" src="js/app.js"></script>
+</body>
+</html>
